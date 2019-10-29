@@ -15,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Tag("controller")
 @DisplayName("CitiesController Integration Tests")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Disable()
 class CitiesControllerIT {
 
     @Autowired
