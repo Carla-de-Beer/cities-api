@@ -1,6 +1,7 @@
 package com.cadebe.cities_api.controller;
 
 import com.cadebe.cities_api.repository.CityDao;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Tag("controller")
 @DisplayName("CitiesController Integration Tests")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Disable()
 class CitiesControllerIT {
 
     @Autowired
@@ -26,7 +26,7 @@ class CitiesControllerIT {
 
     private String url = "/api/v1/cities/";
 
-    @Test
+    @Disabled
     @DisplayName("Test find all cities")
     void testFindAll() {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -36,7 +36,7 @@ class CitiesControllerIT {
                 .isEqualTo(HttpStatus.OK);
     }
 
-    @Test
+    @Disabled
     @DisplayName("Test find all cities (not found)")
     void testFindByIdNotFound() {
         ResponseEntity<String> response = restTemplate.getForEntity(url + "a1a1a1a1-a2a2-a3a3-a4a4-a5a5a5a5a5a5", String.class);
@@ -46,7 +46,7 @@ class CitiesControllerIT {
                 .isEqualTo(HttpStatus.NOT_FOUND);
     }
 
-    @Test
+    @Disabled
     @DisplayName("Test find cities by name")
     void testFindByName() {
         ResponseEntity<String> response = restTemplate.getForEntity(url + "name/" + "Paris", String.class);
@@ -56,7 +56,7 @@ class CitiesControllerIT {
                 .isEqualTo(HttpStatus.OK);
     }
 
-    @Test
+    @Disabled
     @DisplayName("Test find cities by name (not found)")
     void testFindByNameNotFound() {
         ResponseEntity<String> response = restTemplate.getForEntity(url + "/name/" + "Paariss", String.class);
@@ -66,7 +66,7 @@ class CitiesControllerIT {
                 .isEqualTo(HttpStatus.NOT_FOUND);
     }
 
-    @Test
+    @Disabled
     @DisplayName("Test find cities by country code")
     void testFindByCountryCode() {
         ResponseEntity<String> response = restTemplate.getForEntity(url + "country/" + "FR", String.class);
@@ -76,7 +76,7 @@ class CitiesControllerIT {
                 .isEqualTo(HttpStatus.OK);
     }
 
-    @Test
+    @Disabled
     @DisplayName("Test find cities by country code (not found)")
     void testFindByCountryCodeNotFound() {
         ResponseEntity<String> response = restTemplate.getForEntity(url + "country/" + "huu", String.class);
