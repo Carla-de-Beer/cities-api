@@ -39,7 +39,8 @@ jobs:
 
       - run: mvn dependency:go-offline
 
-      - run: name: Waiting for MySQL to be ready
+      - run: 
+          name: Waiting for MySQL to be ready
               command: |
                 for i in `seq 1 30`;
                 do
