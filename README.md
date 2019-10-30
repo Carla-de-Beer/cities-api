@@ -1,7 +1,7 @@
 # Cities API
 [![CircleCI](https://circleci.com/gh/Carla-de-Beer/cities-api.svg?style=svg)](https://circleci.com/gh/Carla-de-Beer/cities-api)
 
-This is a Spring Boot API project operating on city-related data. The city data is manipulated by means of standard CRUD calls, together with custom queries. The data is contained within a MySQL database.
+This is a Spring Boot API project operating on city-related data contained within a MySQL database. The city data is manipulated by means of standard CRUD calls, together with custom queries.
 
 The project is written in Java 11 and uses Maven as build tool. Swagger2 is used to generate the API documentation. Unit tests are written with JUnit 5 and Mockito. Integration tests are written in JUnit 5 as well as with the Postman platform.
 
