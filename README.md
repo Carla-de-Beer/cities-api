@@ -3,7 +3,15 @@
 
 This is a Spring Boot API project operating on city-related data. The city data is manipulated by means of standard CRUD calls, together with custom queries. The data is contained within a MySQL database.
 
-The project is written in Java 11 and uses Maven as build tool. Swagger2 is used to generate the API documentation. Unit tests are written with JUnit 5 and Mockito.
+The project is written in Java 11 and uses Maven as build tool. Swagger2 is used to generate the API documentation. Unit tests are written with JUnit 5 and Mockito. Integration tests are written in JUnit 5 as well as with the Postman platform.
+
+Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/docs/2.0/). The CircleCi `config.yml` file is configured to run the integration tests with mock MySQL data in the `sql-data/dummy.sql` file.
+
+## Requirements
+
+* Java 11
+* Spring Boot 2.0.0
+* MySQL 8.0.17
 
 
 ## Getting started
@@ -46,16 +54,13 @@ The project is written in Java 11 and uses Maven as build tool. Swagger2 is used
     * ```curl -i http://localhost:8080/api/v1/cities/country/<countryCode>```
     * ```curl -i http://localhost:8080/api/v1/cities/population/<size>```
 
-
   * CREATE/ADD:
 
     * ```curl -i -H "Content-Type: application/json" -X POST -d '{"name": "Paris","population": 12532901,"longitude": 0.0, "latitude": 0.0}' http://localhost:8080/api/v1/cities/```
 
-
   * UPDATE/EDIT:
 
     * ```curl -i -H "Content-Type: application/json" -X PUT -d '{"name": "Paris","population": 12532901,"longitude": 48.864716, "latitude": 2.349014}' http://localhost:8080/api/v1/cities/<id>```
-
 
   * DELETE:
 
