@@ -1,58 +1,43 @@
 # Cities API
 [![CircleCI](https://circleci.com/gh/Carla-de-Beer/cities-api.svg?style=svg)](https://circleci.com/gh/Carla-de-Beer/cities-api)
 
-This is a Spring Boot API project operating on city-related data contained within a MySQL database. The city data is manipulated by means of standard CRUD calls, together with custom queries.
+This is a Spring Boot API project operating on city-related data. The project allows for connection to either an H2 database (default), or a MySQL database. To change these, comment/uncomment the relevant application properties yml files.
 
-The project is written in Java 11 and uses Maven as build tool. Swagger2 is used to generate the API documentation. Unit tests are written with JUnit 5 and Mockito. Integration tests are written in JUnit 5 as well as with the Postman platform.
+The city data is manipulated by means of standard CRUD calls, together with custom queries.
+
+The project is written in Java 11 and uses Maven as build tool. Swagger2 is used to generate the API documentation. Unit and integration tests are written with JUnit 5 and Mockito. Functional tests are provided by means of the Postman platform.
 
 Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/docs/2.0/). The CircleCi `config.yml` file is configured to run the integration tests with mock MySQL data in the `sql-data/dummy.sql` file.
 
 ## Requirements
 
 * Java 11
-* Spring Boot 2.0.0
-* MySQL 8.0.17
+* Spring Boot 2.2.1
+* Maven 3.6.1
+* H2/MySQL 8.0.18
+* JUnit 5
 
 
 ## Getting started
 
-* Create a MySQL database, activate its server, and populate it with data via the following SQL query:
-
-    ```
-    DROP TABLE IF EXISTS cities;
-
-    CREATE TABLE cities (
-    `id` BINARY(16) NOT NULL primary key,
-    `name` VARCHAR(255),
-    `country_code` VARCHAR(2),
-    `population` INT,
-    `latitude` DOUBLE,
-    `longitude` DOUBLE) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Bratislava', 'SK', 432508, 48.148598, 17.107748);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Budapest', 'HU', 1763913, 47.497913, 19.040236);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Prague', 'CZ', 1298804, 50.075539, 14.437800);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Warsaw', 'PL', 1775933, 52.229675, 21.012230);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Los Angeles', 'US', 4057841, 34.052235, -118.243683);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'New York', 'US', 8601186, 40.712776, -74.005974);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Edinburgh', 'GB', 530741, 55.953251, -3.188267);
-    INSERT INTO cities values(unhex(replace(uuid(),'-','')), 'Berlin', 'DE', 3556792, 52.520008, 13.404954);
-    ```
-
-## Getting started
-
-* Download or clone the project.
+* Fork or clone the project.
+* To generate the MySQL database, tables and users, follow the SQL queries inside the file `src/main/scripts/configure-mysql.sql`. For the H2 database, initial data is read in via the `Bootstrap` class.
 * Add a database username and password to the `src/main/resources/application.properties` file.
-* Build the project with the command `mvn clean install` and start the project server by running the command `mvn spring-boot:run`.
-* The API can be called with any of the following cURL CRUD-based requests:
+* Start the project server by running the command `mvn spring-boot:run`.
+* The API can be called with any of the following cURL CRUD-based requests (in either JSON or XML formats):
 
-  * GET/READ:
+  * GET/READ
 
     * ```curl -i http://localhost:8080/api/v1/cities/```
+    * ```curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/api/v1/cities/'```
     * ```curl -i http://localhost:8080/api/v1/cities/<id>```
+    * ```curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/api/v1/cities/<id>'```
     * ```curl -i http://localhost:8080/api/v1/cities/name/<cityName>```
+    * ```curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/api/v1/cities/name/<cityName>'```
     * ```curl -i http://localhost:8080/api/v1/cities/country/<countryCode>```
+    * ```curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/api/v1/cities/country/<countryCode>'```
     * ```curl -i http://localhost:8080/api/v1/cities/population/<size>```
+    * ```curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/api/v1/cities/population/<size>'```
 
   * CREATE/ADD:
 
