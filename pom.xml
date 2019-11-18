@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cadebe</groupId>
-    <artifactId>cities-api-2</artifactId>
+    <artifactId>cities-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cities-api-2</name>
+    <name>cities-api</name>
     <description>Spring Boot Cities API</description>
 
     <developers>
