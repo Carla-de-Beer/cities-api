@@ -1,9 +1,8 @@
-package com.cadebe.cities_api.integrationTests.service;
+package com.cadebe.cities_api.service;
 
 import com.cadebe.cities_api.api.v1.model.CityDTO;
 import com.cadebe.cities_api.exception.ResourceNotFoundException;
 import com.cadebe.cities_api.repository.CityRepository;
-import com.cadebe.cities_api.service.CityService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
