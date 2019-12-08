@@ -18,7 +18,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("integration")
-@DisplayName("Test CityRepository (IT)")
+@DisplayName("CityRepository (IT)")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CityRepositoryIT {
 

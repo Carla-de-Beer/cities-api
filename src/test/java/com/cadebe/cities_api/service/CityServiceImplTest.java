@@ -1,6 +1,5 @@
 package com.cadebe.cities_api.service;
 
-import com.cadebe.cities_api.api.v1.mapper.CityMapper;
 import com.cadebe.cities_api.api.v1.model.CityDTO;
 import com.cadebe.cities_api.domain.City;
 import com.cadebe.cities_api.repository.CityRepository;
@@ -25,7 +24,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
 @Tag("service")
-@DisplayName("Test CityServiceImpl")
+@DisplayName("CityServiceImpl")
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 class CityServiceImplTest {
@@ -50,8 +49,7 @@ class CityServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        CityMapper cityMapper = new CityMapper();
-        cityService = new CityServiceImpl(cityRepository, cityMapper);
+        cityService = new CityServiceImpl(cityRepository);
 
         city1 = City.builder()
                 .id(UUID.fromString(ID_1))

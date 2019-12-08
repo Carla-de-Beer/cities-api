@@ -15,25 +15,23 @@ import java.util.stream.Collectors;
 public class CityServiceImpl implements CityService {
 
     private final CityRepository cityRepository;
-    private final CityMapper cityMapper;
 
-    public CityServiceImpl(CityRepository cityRepository, CityMapper cityMapper) {
+    public CityServiceImpl(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
-        this.cityMapper = cityMapper;
     }
 
     @Override
     public List<CityDTO> findAll() {
         return cityRepository.findAll()
                 .stream()
-                .map(cityMapper::cityToCityDTO)
+                .map(CityMapper.INSTANCE::cityToCityDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public CityDTO findById(UUID id) {
         return cityRepository.findById(id)
-                .map(cityMapper::cityToCityDTO)
+                .map(CityMapper.INSTANCE::cityToCityDTO)
                 .orElseThrow(ResourceNotFoundException::new);
     }
 
@@ -41,7 +39,7 @@ public class CityServiceImpl implements CityService {
     public List<CityDTO> findByName(String name) {
         return cityRepository.findByNameContainingIgnoreCase(name)
                 .stream()
-                .map(cityMapper::cityToCityDTO)
+                .map(CityMapper.INSTANCE::cityToCityDTO)
                 .collect(Collectors.toList());
     }
 
@@ -49,7 +47,7 @@ public class CityServiceImpl implements CityService {
     public List<CityDTO> findByCountryCode(String countryCode) {
         return cityRepository.findByCountryCodeContainingIgnoreCase(countryCode)
                 .stream()
-                .map(cityMapper::cityToCityDTO)
+                .map(CityMapper.INSTANCE::cityToCityDTO)
                 .collect(Collectors.toList());
     }
 
@@ -57,18 +55,18 @@ public class CityServiceImpl implements CityService {
     public List<CityDTO> findAllCitiesWithPopulationGreaterThanX(long size) {
         return cityRepository.findAllCitiesWithPopulationGreaterThanX(size)
                 .stream()
-                .map(cityMapper::cityToCityDTO)
+                .map(CityMapper.INSTANCE::cityToCityDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public CityDTO saveNewCity(CityDTO city) {
-        return saveAndReturnDTO(cityMapper.cityDTOToCity(city));
+        return saveAndReturnDTO(CityMapper.INSTANCE.cityDTOToCity(city));
     }
 
     @Override
     public CityDTO update(UUID uuid, CityDTO cityDTO) {
-        City city = cityMapper.cityDTOToCity(cityDTO);
+        City city = CityMapper.INSTANCE.cityDTOToCity(cityDTO);
         city.setId(uuid);
 
         return saveAndReturnDTO(city);
@@ -95,6 +93,6 @@ public class CityServiceImpl implements CityService {
 
     private CityDTO saveAndReturnDTO(City city) {
         City savedCity = cityRepository.save(city);
-        return cityMapper.cityToCityDTO(savedCity);
+        return CityMapper.INSTANCE.cityToCityDTO(savedCity);
     }
 }

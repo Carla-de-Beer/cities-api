@@ -9,13 +9,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Tag("mapper")
-@DisplayName("Test CityMapper")
+@DisplayName("CityMapper")
 class CityMapperTest {
 
     private static final String CITY_NAME = "New Town";
     private static final String COUNTRY_CODE = "ZZ";
-
-    private final CityMapper cityMapper = new CityMapper();
 
     @Test
     @DisplayName("Test map CityDTO to City")
@@ -25,7 +23,7 @@ class CityMapperTest {
                 .countryCode(COUNTRY_CODE)
                 .build();
 
-        City city = cityMapper.cityDTOToCity(cityDTO);
+    City city = CityMapper.INSTANCE.cityDTOToCity(cityDTO);
 
         assertThat(city.getName())
                 .withFailMessage("Could not map from City to CityDTO (city name incorrect)")
@@ -44,7 +42,7 @@ class CityMapperTest {
                 .countryCode(COUNTRY_CODE)
                 .build();
 
-        CityDTO cityDTO = cityMapper.cityToCityDTO(city);
+        CityDTO cityDTO = CityMapper.INSTANCE.cityToCityDTO(city);
 
         assertThat(cityDTO.getName())
                 .withFailMessage("Could not map from CityDTO to City (city name incorrect)")

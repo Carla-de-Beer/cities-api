@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tag("integration")
-@DisplayName("Test CityService (IT)")
+@DisplayName("CityService (IT)")
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class CityServiceIT {

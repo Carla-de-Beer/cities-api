@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 @Tag("integration")
-@DisplayName("Test CityController (IT)")
+@DisplayName("CityController (IT)")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CityControllerIT {
 

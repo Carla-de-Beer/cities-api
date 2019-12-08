@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @Tag("controller")
-@DisplayName("Test CityController")
+@DisplayName("CityController")
 @ExtendWith(MockitoExtension.class)
 class CityControllerTest extends AbstractRestControllerTest {
 
