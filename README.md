@@ -6,6 +6,7 @@ This is a Spring Boot API project operating on city-related data. The project al
 The city data is manipulated by means of standard CRUD calls, together with custom queries.
 
 The project is written in Java 11 and uses Maven as build tool. Swagger2 is used to generate the API documentation. Unit and integration tests are written with JUnit 5 and Mockito. Functional tests are provided by means of the Postman platform.
+JacCoCo is used to provide test coverage information for the unit tests.
 
 Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/docs/2.0/). The CircleCi `config.yml` file is configured to run the integration tests with mock MySQL data in the `sql-data/dummy.sql` file.
 
