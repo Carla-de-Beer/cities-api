@@ -14,7 +14,7 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 
 * Java 11
 * Spring Boot 2.2.1.RELEASE
-* Maven 3.6.2
+* Maven 3.6.3
 * H2/MySQL 8.0.18
 * JUnit 5
 
@@ -55,7 +55,7 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 Alternatively, import and run the Postman test collection. These can be found under `src/test/resources/com/cadebe/cities_api/Postman\ tests/Cities\ API.postman_collection.json`.
 
 
-## API Documentation
+## API documentation
 
 API documentation is provided by means of Swagger2, which can be opened in the browser with the following urls:
 
@@ -66,4 +66,24 @@ API documentation is provided by means of Swagger2, which can be opened in the b
   <img src="images/screenShot-01.png"/>
   <img src="images/screenShot-02.png"/>
   <img src="images/screenShot-03.png"/>
+</p>
+
+
+## SonarCube code analysis
+
+* To view code analysis via SonarCube, run the following Docker command to create a Docker container with SonarCube inside:
+```docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube```
+
+* To send the coverage report to SonarCube, run the following maven command inside the terminal:
+```mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin```
+
+* Following the completion of this plugin execution, open a browser window with the URL 
+``` http://localhost:9000``` and log in with username and password `admin`. 
+
+* Also configure the SonarCube for the correct sonar.jacoco.reportPaths (as shown in the image below:
+```http://localhost:9000/admin/settings?category=java```
+
+<p align="center">
+  <img src="images/screenShot-04.png"/>
+  <img src="images/screenShot-05.png"/>
 </p>
