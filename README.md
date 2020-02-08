@@ -69,18 +69,18 @@ API documentation is provided by means of Swagger2, which can be opened in the b
 </p>
 
 
-## SonarCube code analysis
+## SonarQube code analysis
 
-* To view code analysis via SonarCube, run the following Docker command to create a Docker container with SonarCube inside:
+* To view code analysis via SonarQube, run the following Docker command to create a Docker container with SonarQube inside:
 ```docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube```
 
-* To send the coverage report to SonarCube, run the following maven command inside the terminal:
+* To send the coverage report to SonarQube, run the following maven command inside the terminal:
 ```mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin```
 
 * Following the completion of this plugin execution, open a browser window with the URL 
 ``` http://localhost:9000``` and log in with username and password `admin`. 
 
-* Also configure the SonarCube for the correct sonar.jacoco.reportPaths (as shown in the image below:
+* Also configure the SonarQube for the correct sonar.jacoco.reportPaths (as shown in the image below:
 ```http://localhost:9000/admin/settings?category=java```
 
 <p align="center">
