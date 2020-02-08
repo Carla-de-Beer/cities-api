@@ -18,7 +18,6 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 * H2/MySQL 8.0.18
 * JUnit 5
 
-
 ## Getting started
 
 * Fork or clone the project.
@@ -67,7 +66,6 @@ API documentation is provided by means of Swagger2, which can be opened in the b
   <img src="images/screenShot-02.png"/>
   <img src="images/screenShot-03.png"/>
 </p>
-
 
 ## SonarQube code analysis
 
