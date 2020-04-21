@@ -5,6 +5,7 @@ import com.cadebe.cities_api.api.v1.model.CityDTO;
 import com.cadebe.cities_api.domain.City;
 import com.cadebe.cities_api.exception.ResourceNotFoundException;
 import com.cadebe.cities_api.repository.CityRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,13 +13,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CityServiceImpl implements CityService {
 
     private final CityRepository cityRepository;
-
-    public CityServiceImpl(CityRepository cityRepository) {
-        this.cityRepository = cityRepository;
-    }
 
     @Override
     public List<CityDTO> findAll() {

@@ -5,6 +5,7 @@ import com.cadebe.cities_api.service.CityService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,15 +18,12 @@ import java.util.UUID;
 })
 @RestController
 @RequestMapping({CityController.BASE_URL, CityController.BASE_URL + "/"})
+@RequiredArgsConstructor
 public class CityController {
 
     public static final String BASE_URL = "/api/v1/cities";
 
     private final CityService cityService;
-
-    public CityController(CityService cityService) {
-        this.cityService = cityService;
-    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)

@@ -13,7 +13,7 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 ## Requirements
 
 * Java 11
-* Spring Boot 2.2.1.RELEASE
+* Spring Boot 2.2.6.RELEASE
 * Maven 3.6.3
 * H2/MySQL 8.0.18
 * JUnit 5
@@ -21,7 +21,7 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 ## Getting started
 
 * Fork or clone the project.
-* To generate the MySQL database, tables and users, follow the SQL queries inside the file `src/main/scripts/configure-mysql.sql`. For the H2 database, initial data is read in via the `Bootstrap` class.
+* To generate the MySQL `cities_db` database, tables and users, follow the SQL queries inside the file `src/main/scripts/configure-mysql.sql`. For the H2 database, initial data is read in via the `Bootstrap` class.
 * Add a database username and password to the `src/main/resources/application.properties` file.
 * Start the project server by running the command `mvn spring-boot:run`.
 * The API can be called with any of the following cURL CRUD-based requests (in either JSON or XML formats):
