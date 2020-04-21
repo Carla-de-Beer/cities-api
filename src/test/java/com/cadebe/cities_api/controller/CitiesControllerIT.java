@@ -1,6 +1,8 @@
 package com.cadebe.cities_api.controller;
 
+import com.cadebe.cities_api.model.City;
 import com.cadebe.cities_api.repository.CityDao;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -23,7 +25,20 @@ class CitiesControllerIT {
     @Autowired
     CityDao repository;
 
-    private String url = "/api/v1/cities/";
+    private final String url = "/api/v1/cities/";
+
+    @BeforeEach
+    void setUp() {
+        City city = City.builder()
+                .name("Paris")
+                .latitude(0.0)
+                .latitude(0.0)
+                .population(100)
+                .countryCode("ZZ")
+                .build();
+
+        repository.save(city);
+    }
 
     @Test
     @DisplayName("Test find all cities")
@@ -68,7 +83,7 @@ class CitiesControllerIT {
     @Test
     @DisplayName("Test find cities by country code")
     void testFindByCountryCode() {
-        ResponseEntity<String> response = restTemplate.getForEntity(url + "country/" + "FR", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(url + "country/" + "ZZ", String.class);
 
         assertThat(response.getStatusCode())
                 .withFailMessage("Find all cities by country code response status code is not 200 OK")

@@ -10,13 +10,13 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 ## Requirements
 
 * Java 11
-* Spring Boot 2.0.0
+* Spring Boot 2.2.0
 * MySQL 8.0.17
 
 
 ## Getting started
 
-* Create a MySQL database, activate its server, and populate it with data via the following SQL query:
+* Create a MySQL database called `cities_db`, activate its server, and populate it with data via the following SQL query:
 
     ```
     DROP TABLE IF EXISTS cities;

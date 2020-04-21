@@ -2,7 +2,7 @@ package com.cadebe.cities_api.repository;
 
 import com.cadebe.cities_api.exception.CityNotFoundException;
 import com.cadebe.cities_api.model.City;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Repository;
@@ -12,16 +12,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository("JPA_Dao")
+@RequiredArgsConstructor
 public class CityDaoImpl implements CityDao {
 
     private final CityJPA cityDao;
     private final MessageSource messageSource;
-
-    @Autowired
-    public CityDaoImpl(CityJPA cityDao, MessageSource messageSource) {
-        this.cityDao = cityDao;
-        this.messageSource = messageSource;
-    }
 
     @Override
     public List<City> findAll() {

@@ -5,6 +5,7 @@ import com.cadebe.cities_api.model.City;
 import com.cadebe.cities_api.service.CityService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -21,16 +22,11 @@ import java.util.UUID;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/cities/")
+@RequiredArgsConstructor
 public class CitiesController {
 
     private final CityService cityService;
     private final MessageSource messageSource;
-
-    @Autowired
-    public CitiesController(CityService cityService, MessageSource messageSource) {
-        this.cityService = cityService;
-        this.messageSource = messageSource;
-    }
 
     // CREATE
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

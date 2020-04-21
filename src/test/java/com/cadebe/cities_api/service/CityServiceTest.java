@@ -63,6 +63,7 @@ class CityServiceTest {
         assertThat(foundCities)
                 .withFailMessage("Find all cities produces a null")
                 .isNotNull();
+
         assertThat(foundCities)
                 .withFailMessage("City list size is incorrect for find all cities")
                 .hasSize(1);
@@ -102,6 +103,7 @@ class CityServiceTest {
         assertThat(foundCities.orElse(null))
                 .withFailMessage("Find cities by name produces a null")
                 .isNotNull();
+
         assertThat(foundCities.get())
                 .withFailMessage("City list size is incorrect for find city by name")
                 .hasSize(1);
@@ -123,6 +125,7 @@ class CityServiceTest {
         assertThat(foundCities.orElse(null))
                 .withFailMessage("Find cities by country code produces a null")
                 .isNotNull();
+
         assertThat(foundCities.get())
                 .withFailMessage("City list size is incorrect for find city by country code")
                 .hasSize(1);
@@ -144,6 +147,7 @@ class CityServiceTest {
         assertThat(foundCities.orElse(null))
                 .withFailMessage("Find cities by population larger than certain value produces a null")
                 .isNotNull();
+
         assertThat(foundCities.get())
                 .withFailMessage("City list size is incorrect for find city by population larger than certain value")
                 .hasSize(1);
