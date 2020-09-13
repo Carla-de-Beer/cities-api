@@ -51,7 +51,7 @@ Continuous integration is achieved through [CircleCi 2.0](https://circleci.com/d
 
     * ```curl -i -X DELETE http://localhost:8080/api/v1/cities/<id>```
 
-Alternatively, import and run the Postman test collection. These can be found under `src/test/resources/com/cadebe/cities_api/Postman\ tests/Cities\ API.postman_collection.json`.
+Alternatively, import and run the Postman test collection. These can be found under `src/test/resources/dev.cadebe/cities_api/Postman\ tests/Cities\ API.postman_collection.json`.
 
 
 ## API documentation
